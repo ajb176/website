@@ -44,9 +44,9 @@ jobs:
           script: |
             const creator = context.payload.sender.login
             const result = await github.rest.teams.getMembershipForUserInOrg(
-              {org: context.repo.owner
-              team_slug: 'website-write'
-              username: creator
+              {org: context.repo.owner,
+              team_slug: 'website-write',
+              username: creator,
               })
             console.log(creator, result)
             if (result.error==404) {
