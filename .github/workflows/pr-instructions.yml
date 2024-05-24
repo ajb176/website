@@ -25,7 +25,7 @@ jobs:
             })
       
       # Create an artifact with the message
-      - name: Create Artifacts`
+      - name: Create Artifacts
         run: |
           mkdir -p addingPrInstructions/artifact
           echo ${{ steps.instruction.outputs.result }} > addingPrInstructions/artifact/artifact.txt
