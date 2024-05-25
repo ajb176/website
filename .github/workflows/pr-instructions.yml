@@ -57,6 +57,7 @@ jobs:
               }
             else { console.log("unknown error") }
             }
+            console.log(result)
           
             
 
