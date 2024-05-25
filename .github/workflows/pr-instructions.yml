@@ -35,6 +35,7 @@ jobs:
         with:
           name: adding-pr-instructions-artifact
           path: addingPrInstructions/artifact/
+  # Hello World
   Check-Team-Membership:
     runs-on: ubuntu-latest
     steps:
@@ -42,15 +43,23 @@ jobs:
         with:
           script: |
             const creator = context.payload.sender.login
+            try {
             const result = await github.rest.teams.getMembershipForUserInOrg(
-              {org: context.repo.owner
-              team_slug: 'website-write'
-              username: creator
+              {org: 'hackforla',
+              team_slug: 'website-write',
+              username: creator,
               })
+            } catch (result)
+            {
             console.log(creator, result)
-            if (result.error==404) {
-              console.log("error 404 detected")
+            if (result.status==404) {
+              console.log("error 404 detected") 
+              }
+            else {
+              console.log("unknown error")
             }
+            }
+          
             
 
   
