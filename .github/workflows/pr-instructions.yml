@@ -43,15 +43,23 @@ jobs:
         with:
           script: |
             const creator = context.payload.sender.login
+            try {
             const result = await github.rest.teams.getMembershipForUserInOrg(
-              {org: context.repo.owner,
+              {org: 'hackforla',
               team_slug: 'website-write',
               username: creator,
               })
+            } catch (result)
+            {
             console.log(creator, result)
-            if (result.error==404) {
-              console.log("error 404 detected")
+            if (result.status==404) {
+              console.log("error 404 detected") 
+              }
+            else {
+              console.log("unknown error")
             }
+            }
+          
             
 
   
