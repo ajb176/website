@@ -35,11 +35,7 @@ jobs:
         with:
           name: adding-pr-instructions-artifact
           path: addingPrInstructions/artifact/
-<<<<<<< HEAD
-  # Hello World
-=======
   # 
->>>>>>> edb19154805a70128db90c504997ccee97e98fc8
   Check-Team-Membership:
     runs-on: ubuntu-latest
     steps:
@@ -54,25 +50,13 @@ jobs:
               team_slug: 'website-write',
               username: creator,
               })
-<<<<<<< HEAD
-            } catch (result)
-            {
-=======
             } catch (result) {
->>>>>>> edb19154805a70128db90c504997ccee97e98fc8
             console.log(creator, result)
             if (result.status==404) {
               console.log("error 404 detected") 
               }
-<<<<<<< HEAD
-            else {
-              console.log("unknown error")
-            }
-            }
-=======
             else { console.log("unknown error") }
             }
->>>>>>> edb19154805a70128db90c504997ccee97e98fc8
           
             
 
