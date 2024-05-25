@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/github-script@v7
         with:
-          repo-token: ${{ secrets.HFLA_PB_TOKEN }}
+          github-token: ${{ secrets.HFLA_PB_TOKEN }}
           script: |
             const creator = context.payload.sender.login
             try {
