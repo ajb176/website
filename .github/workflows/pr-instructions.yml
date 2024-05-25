@@ -35,7 +35,7 @@ jobs:
         with:
           name: adding-pr-instructions-artifact
           path: addingPrInstructions/artifact/
-  # 
+  # H
   Check-Team-Membership:
     runs-on: ubuntu-latest
     steps:
@@ -50,6 +50,7 @@ jobs:
               team_slug: 'website-write',
               username: creator,
               })
+              console.log(result)
             } catch (result) {
             console.log(creator, result)
             if (result.status==404) {
@@ -57,7 +58,7 @@ jobs:
               }
             else { console.log("unknown error") }
             }
-            console.log(result)
+
           
             
 
