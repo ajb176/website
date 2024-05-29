@@ -57,6 +57,8 @@ jobs:
               if (error.status==404) {
               const repo_path = github.repository;
               const pr_number = context.payload.number;
+              console.log(repo_path);
+              console.log(pr_number);
               try {
                 await github.request('PATCH' /repos/${repo_path}/pulls/${pr_number},
                 {
