@@ -58,7 +58,7 @@ jobs:
               const repo_path = github.repository;
               const pr_number = context.payload.number;
               try {
-                await github.request('PATCH' /repos/{repo_path}/pulls/{pr_number},
+                await github.request('PATCH' /repos/${repo_path}/pulls/${pr_number},
                 {
                   state : 'closed'
                 });
