@@ -66,6 +66,7 @@ jobs:
                 {
                   console.log("Close Request Failed")
                 }
+              }
               else { console.log("Membership Verification Failed. Check Logs for details.") }
               }
             
