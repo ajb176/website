@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/github-script@v7
         with:
-          #Replace the token: A
+          #Replace the token: As
           github-token: ${{ secrets.HFLA_PB_TOKEN }}
           # 
           script: |
@@ -55,7 +55,8 @@ jobs:
               });
             } catch (error) {
               if (error.status==404) {
-              const repo_path = context.repository;
+              console.log(context)
+              const repo_path = context.payload.repository;
               const pr_number = context.payload.number;
               console.log(repo_path)
               console.log(pr_number)
