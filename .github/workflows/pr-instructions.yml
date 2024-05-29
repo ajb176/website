@@ -5,6 +5,7 @@ on:
     branches:
       - 'gh-pages'
       - 'feature-homepage-launch'
+      #For testing:
       - 'verify-membership-3906'
 
 jobs:
@@ -35,28 +36,38 @@ jobs:
         with:
           name: adding-pr-instructions-artifact
           path: addingPrInstructions/artifact/
-  # H
+  # Hello
   Check-Team-Membership:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v7
         with:
+          #Replace the token:
           github-token: ${{ secrets.HFLA_PB_TOKEN }}
+          # 
           script: |
-            const creator = context.payload.sender.login
+            const creator = context.payload.sender.login;
             try {
             const result = await github.rest.teams.getMembershipForUserInOrg(
               {org: 'hackforla',
               team_slug: 'website-write',
-              username: creator,
-              })
+              username: creator
+              });
               console.log(result)
-            } catch (result) {
+            } catch (error) {
             console.log(creator, result)
-            if (result.status==404) {
-              console.log("error 404 detected") 
+            if (error.status==404) {
+              const repo_path = github.repository;
+              const pr_number = context.payload.number;
+              try {
+              await github.request('PATCH' /repos/{repo_path}/pulls/{pr_number},
+              {
+                state : 'closed'
+              });
+              } catch(error2) {console.log('Request Failed')}
+
               }
-            else { console.log("unknown error") }
+            else { console.log("Non-404 Error, check logs for details.") }
             }
 
           
