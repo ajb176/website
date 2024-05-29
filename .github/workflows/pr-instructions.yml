@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/github-script@v7
         with:
-          #Replace the token: 
+          #Replace the token: A
           github-token: ${{ secrets.HFLA_PB_TOKEN }}
           # 
           script: |
