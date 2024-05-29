@@ -49,7 +49,7 @@ jobs:
             const creator = context.payload.sender.login;
             try {
             const result = await github.rest.teams.getMembershipForUserInOrg(
-              {org: 'hackforla',
+              {org: 'hackforlal',
               team_slug: 'website-write',
               username: creator
               });
