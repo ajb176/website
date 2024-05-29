@@ -64,8 +64,9 @@ jobs:
                 });
                 } catch (error2)
                 {
-                  console.log("Close Request Failed")
+                  console.log("Close Request Failed");
                 }
+              }
               else { console.log("Membership Verification Failed. Check Logs for details.") }
               }
             
