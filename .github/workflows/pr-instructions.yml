@@ -42,11 +42,12 @@ jobs:
     steps:
       - uses: actions/github-script@v7
         with:
-          #Replace the token: A
+          #Replace the token:
           github-token: ${{ secrets.HFLA_PB_TOKEN }}
           # 
           script: |
             const creator = context.payload.sender.login;
+            const pr_number = context.payload.number;
             try {
               const result = await github.rest.teams.getMembershipForUserInOrg(
               {org: 'hackforlal',
@@ -55,8 +56,6 @@ jobs:
               });
             } catch (verificationError) {
               if (verificationError.status==404) {
-              const repo_path = context.payload.repository.full_name;
-              const pr_number = context.payload.number;
               try {
                 await github.request('PATCH /repos/{owner}/{repo}/pulls/{pull_number}', {
                   owner : 'ajb176',
@@ -70,10 +69,7 @@ jobs:
                     owner : 'ajb176',
                     repo : 'website',
                     issue_number : pr_number,
-                    body : 'You must be a member of the HFLA  website team in order to create pull requests. 
-                    Please see our page on how to join us as a member at HFLA: https://www.hackforla.org/getting-started.  
-                    If you have been though onboarding, and feel this message in error, please message us in the #hfla-site team 
-                    slack channel with the link to this PR.'
+                    body : 'You must be a member of the HFLA website team in order to create pull requests. Please see our page on how to join us as a member at HFLA: https://www.hackforla.org/getting-started.  If you have been though onboarding, and feel this message in error, please message us in the #hfla-site team slack channel with the link to this PR.'
                   });
                   } catch(issueCommentError) {
                     console.log(issueCommentError);
