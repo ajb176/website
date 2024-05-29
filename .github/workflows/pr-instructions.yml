@@ -55,7 +55,7 @@ jobs:
               });
             } catch (error) {
               if (error.status==404) {
-              const repo_path = github.repository;
+              const repo_path = context.repository;
               const pr_number = context.payload.number;
               console.log(repo_path)
               console.log(pr_number)
