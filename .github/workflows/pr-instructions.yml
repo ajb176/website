@@ -55,7 +55,8 @@ jobs:
               });
             } catch (error) {
               if (error.status==404) {
-              const repo_path = context.repository;
+              console.log(context)
+              const repo_path = context.payload.repository;
               const pr_number = context.payload.number;
               console.log(repo_path)
               console.log(pr_number)
