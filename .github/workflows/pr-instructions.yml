@@ -53,9 +53,7 @@ jobs:
               team_slug: 'website-write',
               username: creator
               });
-              console.log(result)
             } catch (error) {
-            console.log(creator, result)
             if (error.status==404) {
               const repo_path = github.repository;
               const pr_number = context.payload.number;
@@ -65,7 +63,6 @@ jobs:
                 state : 'closed'
               });
               } catch(error2) {console.log('Request Failed')}
-
               }
             else { console.log("Non-404 Error, check logs for details.") }
             }
