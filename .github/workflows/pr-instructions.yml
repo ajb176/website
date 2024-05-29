@@ -58,7 +58,10 @@ jobs:
               const repo_path = context.payload.repository.full_name;
               const pr_number = context.payload.number;
               try {
-                await github.request('PATCH' /repos/${repo_path}/pulls/${pr_number}, {
+                await github.request('PATCH' /repos/{owner}/{repo}/pulls/{pull_number}, {
+                  owner : 'ajb176',
+                  repo : 'website',
+                  pull_number : pr_number,
                   state : 'closed'
                 });
                 console.log("Successfully updated")
