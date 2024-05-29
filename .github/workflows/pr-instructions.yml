@@ -48,24 +48,22 @@ jobs:
           script: |
             const creator = context.payload.sender.login;
             try {
-            const result = await github.rest.teams.getMembershipForUserInOrg(
+              const result = await github.rest.teams.getMembershipForUserInOrg(
               {org: 'hackforlal',
               team_slug: 'website-write',
               username: creator
               });
             } catch (error) {
-            if (error.status==404) {
+              if (error.status==404) {
               const repo_path = github.repository;
               const pr_number = context.payload.number;
-              try {
               await github.request('PATCH' /repos/{repo_path}/pulls/{pr_number},
               {
                 state : 'closed'
               });
-              } catch(error2) {console.log('Request Failed')}
               }
-            else { console.log("Non-404 Error, check logs for details.") }
-            }
+              else { console.log("Non-404 Error, check logs for details.") }
+            
 
           
             
