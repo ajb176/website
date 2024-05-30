@@ -56,7 +56,7 @@ jobs:
               const getMembershipStatus = await github.rest.teams.getMembershipForUserInOrg({
               org: 'hackforla',
               team_slug: 'website-write',
-              username: prAuthor
+              username: 'DSKFLJASDFJKSF'
               });
               console.log('Successfully verified!')
             } catch (verificationError) {
