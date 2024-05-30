@@ -59,21 +59,21 @@ jobs:
               });
               console.log('Successfully verified!')
             } catch (verificationError) {
-              try {
-                if (verificationError.status==404) {
+              if (verificationError.status==404) {
+                try {
                   await github.request('PATCH /repos/{owner}/{repo}/pulls/{pull_number}', {
                     owner : 'ajb176',
                     repo : 'website',
                     pull_number : prNumber,
                     state : 'closed'
                   });
-              } catch(updateError) {
-                if (updateError.status==404) {
-                  console.log('404 Error detected')
-                }
-                else {
-                  throw updateError;
-                }
+                } catch(updateError) {
+                  if (updateError.status==404){
+                    console.log('404detected')
+                  }
+                  else {
+                    console.log('non404')
+                  }
                 }
                 await github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/comments', {
                   owner : 'ajb176',
