@@ -45,7 +45,7 @@ jobs:
           #2) For testing: Replace the token on line 48 with a user-generated PA token
           #3) For testing the success condition: For the github.request API calls, replace the 'owner' in lines 61 and 67 with your own github-handle for testing in local repo
           #4) For testing the fail condition: change the username assignment from 'prAuthor' in line 56 to a random string
-          github-token: ${{ secrets.HACKFORLA_BOT_PA_TOKEN }}
+          github-token: ${{ secrets.HLFA_PB_TOKEN }}
           script: |
             const prAuthor = context.payload.sender.login;
             const prNumber = context.payload.number;
