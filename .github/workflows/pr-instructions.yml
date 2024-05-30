@@ -6,7 +6,7 @@ on:
       - 'gh-pages'
       - 'feature-homepage-launch'
       #1)The following branch will be removed after testing:
-      - 'successtestbranch'
+      - 'failtestbranch'
 
 jobs:
   Add-Pull-Request-Instructions:
