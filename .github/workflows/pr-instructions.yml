@@ -71,9 +71,6 @@ jobs:
                   if (updateError.status==404){
                     console.log('404detected')
                   }
-                  else {
-                    console.log('non404')
-                  }
                 }
                 await github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/comments', {
                   owner : 'ajb176',
