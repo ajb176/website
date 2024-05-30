@@ -25,7 +25,7 @@ jobs:
               return JSON.stringify({ instruction: instruction, issueNum: context.payload.number })
             })
       
-      # Create an artifact with the message
+      # Create an artifact with the message CAKE
       - name: Create Artifacts
         run: |
           mkdir -p addingPrInstructions/artifact
