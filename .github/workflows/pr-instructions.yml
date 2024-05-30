@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/github-script@v7
         with:
-          #2) For testing: Replace the token on line 48 with a user-generated PA token
+          #2) For testing: Replace the token on line 48 with a user-generated PA token GAGA
           #3) For testing the success condition: For the github.request API calls, replace the 'owner' in lines 61 and 67 with your own github-handle for testing in local repo
           #4) For testing the fail condition: Follow step #3 and also change the username assignment from 'prAuthor' in line 56 to a random string
           github-token: ${{ secrets.HFLA_PB_TOKEN }}
