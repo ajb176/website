@@ -6,7 +6,7 @@ on:
       - 'gh-pages'
       - 'feature-homepage-launch'
       #Uncomment the next line for testing:
-      #- 'verify-pr-membership-3906'
+      - 'testingbranch'
 
 jobs:
   Add-Pull-Request-Instructions:
