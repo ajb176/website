@@ -5,7 +5,7 @@ on:
     branches:
       - 'gh-pages'
       - 'feature-homepage-launch'
-      #Uncomment the next line for testing:
+      #Uncomment the next line for testing:s
       - 'testingbranch2'
 
 jobs:
