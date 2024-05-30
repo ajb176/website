@@ -5,7 +5,7 @@ on:
     branches:
       - 'gh-pages'
       - 'feature-homepage-launch'
-      #1)The following branch will be removed after testing:
+      #1)The following branch will be removed after testing
       - 'verify-pr-membership-3906'
 
 jobs:
