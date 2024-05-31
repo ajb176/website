@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Create the message to post
+      # Create the message to postd
       - name: Create Instruction
         uses: actions/github-script@v7
         id: instruction
