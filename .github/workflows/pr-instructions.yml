@@ -5,7 +5,7 @@ on:
     branches:
       - 'gh-pages'
       - 'feature-homepage-launch'
-      - 'copy306'
+      - 'copy3906'
 
 jobs:
   Add-Pull-Request-Instructions:
