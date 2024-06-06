@@ -24,7 +24,7 @@ jobs:
               return JSON.stringify({ instruction: instruction, issueNum: context.payload.number })
             })
       
-      # Create an artifact with the message
+      # Create an artifact with the message TEST
       - name: Create Artifacts
         run: |
           mkdir -p addingPrInstructions/artifact
