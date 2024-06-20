@@ -3,7 +3,7 @@
 * @param {String} githubUsername - The github username of the user whose membership is to be checked.
 * @param {String} team - The HFLA team the username's membership is checked against. Example: 'website-write'
 
-- Returns true or false depending on whether the username is found on the passed team, 404 means the user passed wasn't 
+- Returns true or false depending on whether the username is found on the passed team, 404 means the user passed wasn't d
 found on the team passed. Any other type of error will be thrown.
 - Need admin:orgs permission to use this function, the least permissive token which contains this is the secrets.TEAM token.
 Lack of permission will result in a 403 error.
