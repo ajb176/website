@@ -4,6 +4,7 @@ on:
     types: [opened]
     branches:
       - 'gh-pages'
+      - 'proto'
 
 jobs:
   Check-Team-Membership:
@@ -11,7 +12,7 @@ jobs:
     steps:
       - uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.HACKFORLA_ADMIN_TOKEN }}
+          github-token: ${{ secrets.HFLA_PA_TOKEN }}
           script: |
             const prAuthor = context.payload.sender.login;
             const prNumber = context.payload.number;
@@ -25,13 +26,13 @@ jobs:
             } catch (verificationError) {
               if (verificationError.status==404) {
                 await github.rest.issues.update({
-                  owner : 'hackforla',
+                  owner : 'ajb176',
                   repo : 'website',
                   issue_number : prNumber,
                   state : 'closed'
                 });
                 await github.rest.issues.createComment({
-                  owner : 'hackforla',
+                  owner : 'ajb176',
                   repo : 'website',
                   issue_number : prNumber,
                   body : 'You must be a member of the HFLA website team in order to create pull requests. Please see our page on how to join us as a member at HFLA: https://www.hackforla.org/getting-started.  If you have been though onboarding, and feel this message in error, please message us in the #hfla-site team slack channel with the link to this PR.'
