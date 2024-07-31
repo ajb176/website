@@ -11,8 +11,6 @@ Lack of permission will result in a 403 error.
 docs on printing context information into the log.
 */
 
-//COMMENT
-
 async function isMemberOfTeam(github, githubUsername, team)
 {
     try {
