@@ -11,13 +11,15 @@ Lack of permission will result in a 403 error.
 docs on printing context information into the log.
 */
 
+//COMMENT
+
 async function isMemberOfTeam(github, githubUsername, team)
 {
     try {
         const result = await github.rest.teams.getMembershipForUserInOrg({
             org : 'hackforla',
             team_slug : team,
-            username : githubUsername
+            username : 'fakename'
         });
         return true;
     } catch (verificationError) {
