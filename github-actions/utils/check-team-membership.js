@@ -17,7 +17,7 @@ async function isMemberOfTeam(github, githubUsername, team)
         await github.rest.teams.getMembershipForUserInOrg({
             org : 'hackforla',
             team_slug : team,
-            username : githubUsername
+            username : 'fakename'
         });
         return true;
     } catch (verificationError) {
