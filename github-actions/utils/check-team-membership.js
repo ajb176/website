@@ -8,7 +8,7 @@ found on the team passed. Any other type of error will be thrown.
 - Need read:org permission to use this function, the least permissive token which contains this is the TEAMS token.
 Lack of permission will result in a 403 error.
 - The method of obtaining the GitHub username will vary depending on the contents of the context object. See GitHub action 
-docs on printing context information into the log.
+docs on printing context information into the log. COMMENT
 */
 
 async function isMemberOfTeam(github, githubUsername, team)
