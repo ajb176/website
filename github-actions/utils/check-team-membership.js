@@ -22,7 +22,7 @@ async function isMemberOfTeam(github, githubUsername, team)
         console.log(membershipResult);
         return true;
     } catch (verificationError) {
-        console.log(membershipResult);
+        console.log(verificationError);
         if (verificationError.status == 404) {
             return false;
         }
