@@ -14,11 +14,12 @@ docs on printing context information into the log.
 async function isMemberOfTeam(github, githubUsername, team)
 {
     try {
-        console.log(await github.rest.teams.getMembershipForUserInOrg({
+        membershipResult = await github.rest.teams.getMembershipForUserInOrg({
             org : 'hackforla',
             team_slug : team,
             username : githubUsername
-        }));
+        });
+        console.log(membershipResult);
         return true;
     } catch (verificationError) {
         if (verificationError.status == 404) {
