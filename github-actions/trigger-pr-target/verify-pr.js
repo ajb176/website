@@ -7,6 +7,7 @@ async function main({github,context}) {
     const isMember = await isMemberOfTeam(github, prAuthor, 'website-write');
     console.log(github);
     console.log(context);
+    //test
     if (isMember) {    
         console.log('Successfully verified!');
     }
