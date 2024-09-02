@@ -26,6 +26,7 @@ async function main({github,context}) {
             throw closeCommentError;
         } 
     }    
-}
+} 
+//s
 
 module.exports = main;
