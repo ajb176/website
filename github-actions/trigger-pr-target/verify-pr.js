@@ -9,7 +9,7 @@ async function main({github,context}) {
     console.log(context.payload.pull_request.head);
     const prAuthor = context.payload.sender.login;  
     const prNumber = context.payload.number;
-    const repoFullName = context.payload.repository.full_name; //string: '<repo_owner>/<repo_name>'d
+    const repoFullName = context.payload.repository.full_name; //string: '<repo_owner>/<repo_name>'ds
     const ownerRepo = repoFullName.split("/");
     const isMember = await isMemberOfTeam(github, prAuthor, 'website-write');
     if (isMember || prAuthor =='dependabot[bot]') {    
