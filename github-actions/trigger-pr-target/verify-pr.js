@@ -5,6 +5,8 @@ If you have been though onboarding, and feel this message was sent in error, ple
 #hfla-site team Slack channel with the link to this PR.';
 
 async function main({github,context}) {
+    console.log(context.payload.base);
+    console.log(context.payload.head);
     const prAuthor = context.payload.sender.login;  
     const prNumber = context.payload.number;
     const repoFullName = context.payload.repository.full_name; //string: '<repo_owner>/<repo_name>'
