@@ -2,14 +2,39 @@
 const statusFieldIds = require('../../utils/_data/status-field-ids');
 const queryIssueInfo = require('../../utils/query-issue-info');
 const mutateIssueStatus = require('../../utils/mutate-issue-status');
+const retrieveLabelDirectory = require('../../utils/retrieve-label-directory');
+
+// Use labelKeys to retrieve current labelNames from directory
+const [
+  sizeMissing,
+  featureMissing,
+  complexityMissing,
+  roleMissing,
+  complexity2,
+  readyForDevLead,
+  featureAdministrative,
+  size025pt,
+  roleDevLeads
+] = [
+  "sizeMissing",
+  "featureMissing",
+  "complexityMissing",
+  "roleMissing",
+  "complexity2",
+  "readyForDevLead",
+  "featureAdministrative",
+  "size025pt",
+  "roleDevLeads"
+].map(retrieveLabelDirectory);
 
 // Constant variables
-const REQUIRED_LABELS = ['Complexity', 'role', 'Feature', 'size'];
-const LABEL_MISSING = ['Complexity: Missing', 'role missing', 'Feature Missing', 'size: missing'];
-const COMPLEXITY_EXCEPTIONS = ['good first issue'];
+const REQUIRED_LABELS = ['complexity', 'role', 'feature', 'size'];
+const LABEL_MISSING = [complexityMissing, roleMissing, featureMissing, sizeMissing];
 
-// SPECIAL_CASE is for issue created by reference with issue title "Hack for LA website bot" (from "Review Inactive Team Members")
-const SPECIAL_CASE = ['ready for dev lead','Feature: Administrative','size: 0.25pt','Complexity: Small','role: dev leads'];
+
+// SPECIAL_CASE is for issue created by reference with issue title "Hack for LA website bot"
+// (from "Review Inactive Team Members", "Schedule Monthly" workflow)
+const SPECIAL_CASE = [readyForDevLead, featureAdministrative, size025pt, complexity2, roleDevLeads];
 
 // Global variables
 var github;
@@ -85,11 +110,6 @@ function checkLabels(labels) {
   REQUIRED_LABELS.forEach((requiredLabel, i) => {
     const regExp = new RegExp(`\\b${requiredLabel}\\b`, 'gi');
     const isLabelPresent = labels.some(label => {
-      // If the label is in the complexity exceptions array, it also fulfills the complexity requirements
-      if (COMPLEXITY_EXCEPTIONS.includes(label) && requiredLabel === 'Complexity') {
-        return true;
-      }
-
       return regExp.test(label);
     })
 

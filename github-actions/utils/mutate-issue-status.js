@@ -1,3 +1,6 @@
+// Import modules
+const statusFieldIds = require('../../utils/_data/status-field-ids');
+
 /**
  * Changes the 'Status' of an issue (with the corresponding itemId) to a newStatusValue
  * @param {String} itemId          -  GraphQL item Id for the issue
@@ -11,8 +14,8 @@ async function mutateIssueStatus(
   newStatusValue
 ) {
   // Defaults for HfLA Website Project 86
-  const WEBSITE_PROJECT_ID = 'PVT_kwDOALGKNs4Ajuck';
-  const STATUS_FIELD_ID = 'PVTSSF_lADOALGKNs4AjuckzgcCutQ';
+  const WEBSITE_PROJECT_ID = statusFieldIds("WEBSITE_PROJECT_ID");
+  const STATUS_FIELD_ID = statusFieldIds("STATUS_FIELD_ID");
 
   const mutation = `mutation($projectId: ID!, $fieldId: ID!, $itemId: ID!, $value: String!) {
     updateProjectV2ItemFieldValue(input: {
@@ -39,7 +42,7 @@ async function mutateIssueStatus(
   try {
     await github.graphql(mutation, variables);
   } catch (error) {
-    throw new Error('Error in mutateItemStatus() function: ' + error);
+    throw new Error('Error in mutateIssueStatus() function: ' + error);
   }
 }
 
