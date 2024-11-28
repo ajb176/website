@@ -1,5 +1,5 @@
 // Import modules
-const statusFieldIds = require('../../utils/_data/status-field-ids');
+const statusFieldIds = require('./_data/status-field-ids');
 
 /**
  * Changes the 'Status' of an issue (with the corresponding itemId) to a newStatusValue
@@ -14,8 +14,8 @@ async function mutateIssueStatus(
   newStatusValue
 ) {
   // Defaults for HfLA Website Project 86
-  const WEBSITE_PROJECT_ID = statusFieldIds("WEBSITE_PROJECT_ID");
-  const STATUS_FIELD_ID = statusFieldIds("STATUS_FIELD_ID");
+  const PROJECT_ID = statusFieldIds("PROJECT_ID");
+  const FIELD_ID = statusFieldIds("FIELD_ID");
 
   const mutation = `mutation($projectId: ID!, $fieldId: ID!, $itemId: ID!, $value: String!) {
     updateProjectV2ItemFieldValue(input: {
@@ -33,8 +33,8 @@ async function mutateIssueStatus(
   }`;
 
   const variables = {
-    projectId: WEBSITE_PROJECT_ID,
-    fieldId: STATUS_FIELD_ID,
+    projectId: PROJECT_ID,
+    fieldId: FIELD_ID,
     itemId: itemId,
     value: newStatusValue,
   };
