@@ -114,7 +114,7 @@ function checkLabels(labels) {
     const regExp = new RegExp(`\\b${requiredLabel}\\b`, 'gi');
     const isLabelPresent = labels.some(label => {
       // If the label is in the complexity exceptions array, it also fulfills the complexity requirements
-      if (COMPLEXITY_EXCEPTIONS.includes(label) && requiredLabel === 'Complexity') {
+      if (COMPLEXITY_EXCEPTIONS.includes(label) && requiredLabel === 'complexity') {
         return true;
       }
 
