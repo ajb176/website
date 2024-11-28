@@ -10,6 +10,7 @@ const [
   featureMissing,
   complexityMissing,
   roleMissing,
+  complexity1,
   complexity2,
   readyForDevLead,
   featureAdministrative,
@@ -20,6 +21,7 @@ const [
   "featureMissing",
   "complexityMissing",
   "roleMissing",
+  "complexity1",
   "complexity2",
   "readyForDevLead",
   "featureAdministrative",
@@ -30,10 +32,11 @@ const [
 // Constant variables
 const REQUIRED_LABELS = ['complexity', 'role', 'feature', 'size'];
 const LABEL_MISSING = [complexityMissing, roleMissing, featureMissing, sizeMissing];
-
+// Exception for the `good first issue` label
+const COMPLEXITY_EXCEPTIONS = [complexity1];
 
 // SPECIAL_CASE is for issue created by reference with issue title "Hack for LA website bot"
-// (from "Review Inactive Team Members", "Schedule Monthly" workflow)
+// ("Review Inactive Team Members" from the "Schedule Monthly" workflow)
 const SPECIAL_CASE = [readyForDevLead, featureAdministrative, size025pt, complexity2, roleDevLeads];
 
 // Global variables
@@ -110,6 +113,11 @@ function checkLabels(labels) {
   REQUIRED_LABELS.forEach((requiredLabel, i) => {
     const regExp = new RegExp(`\\b${requiredLabel}\\b`, 'gi');
     const isLabelPresent = labels.some(label => {
+      // If the label is in the complexity exceptions array, it also fulfills the complexity requirements
+      if (COMPLEXITY_EXCEPTIONS.includes(label) && requiredLabel === 'Complexity') {
+        return true;
+      }
+
       return regExp.test(label);
     })
 
@@ -117,7 +125,7 @@ function checkLabels(labels) {
       labelsToAdd.push(LABEL_MISSING[i]);
     }
   })
-  
+
   return labelsToAdd;
 }
 
