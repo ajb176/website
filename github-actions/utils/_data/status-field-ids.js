@@ -62,7 +62,7 @@ query findStatusSubfieldIds ($login: String!, $projNum: Int!, $fieldName: String
 {
   "login": "hackforla",
   "projNum": 86,
-	"fieldName": "Status"
+  "fieldName": "Status"
 }
 */
 
