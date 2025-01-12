@@ -12,8 +12,8 @@ function statusFieldIds(statusField) {
   const statusValues = new Map([
 
     // Default values for HfLA Website Project 86
-    ["PROJECT_ID", "PVT_kwDOALGKNs4Ajuck"],
-    ["FIELD_ID", "PVTSSF_lADOALGKNs4AjuckzgcCutQ"],
+    ["PROJECT_ID", "PVT_kwHOAS3eC84Av5lj"],
+    ["FIELD_ID", "PVTSSF_lAHOAS3eC84Av5ljzgmQTB0"],
 
     // Individual Status field values
     ["Agendas", "864392c1"],
